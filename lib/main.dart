@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:formation_aout/market_place.dart';
+import 'package:formation_aout/menu_page.dart';
 
 void main() {
   runApp(const Application());
@@ -138,10 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             UserFeeds(),
             UserFeeds(),
+            MarketPlace(),
             UserFeeds(),
             UserFeeds(),
-            UserFeeds(),
-            UserFeeds(),
+            MenuPage(),
           ],
         ),
         // bottomNavigationBar: BottomNavigationBar(
@@ -195,8 +197,8 @@ class _UserFeedsState extends State<UserFeeds> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(10),
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: Row(
@@ -206,7 +208,7 @@ class _UserFeedsState extends State<UserFeeds> {
                       Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.blueAccent,
                           shape: BoxShape.circle,
                         ),
@@ -217,7 +219,7 @@ class _UserFeedsState extends State<UserFeeds> {
                         child: Container(
                           width: 15,
                           height: 15,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.green,
                           ),
@@ -233,14 +235,14 @@ class _UserFeedsState extends State<UserFeeds> {
                         controller: _postController,
                         decoration: InputDecoration(
                           isDense: true,
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                             horizontal: 20,
                             vertical: 10,
                           ),
                           hintText: "What's on your mind?",
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintStyle: const TextStyle(color: Colors.black),
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.black,
                             ),
                             borderRadius: BorderRadius.circular(50),
@@ -251,7 +253,7 @@ class _UserFeedsState extends State<UserFeeds> {
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.photo,
                       color: Colors.green,
                     ),
@@ -259,19 +261,19 @@ class _UserFeedsState extends State<UserFeeds> {
                 ],
               ),
             ),
-            Divider(thickness: .1),
+            const Divider(thickness: .1),
             Container(
               height: MediaQuery.of(context).size.height * .32,
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(10),
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: DefaultTabController(
                 length: 2,
                 child: Column(
                   children: [
-                    TabBar(
+                    const TabBar(
                       labelColor: Colors.black,
                       labelStyle: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -296,7 +298,7 @@ class _UserFeedsState extends State<UserFeeds> {
                               children: [
                                 for (int i = 0; i < 5; i++)
                                   Container(
-                                    margin: EdgeInsets.only(right: 5),
+                                    margin: const EdgeInsets.only(right: 5),
                                     decoration: BoxDecoration(
                                         color: Colors.primaries[i],
                                         borderRadius:
@@ -320,7 +322,7 @@ class _UserFeedsState extends State<UserFeeds> {
                                               ),
                                             ],
                                           ),
-                                          Text(
+                                          const Text(
                                             "Lucas Filario",
                                             style: TextStyle(
                                               color: Colors.white,
