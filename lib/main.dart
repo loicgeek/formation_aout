@@ -2,7 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:formation_aout/market_place.dart';
-import 'package:formation_aout/menu_page.dart';
+import 'package:formation_aout/user_menu_page.dart';
+import 'package:formation_aout/widgets/app_icon.dart';
 
 void main() {
   runApp(const Application());
@@ -58,44 +59,15 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: false,
           elevation: 0,
           actions: [
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 6),
-              padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey.withOpacity(.1),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.add,
-                color: Colors.black,
-              ),
+            AppIcon(
+              icon: Icons.add,
+              iconColor: Colors.blueAccent,
+              backColor: Colors.purple,
             ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 6),
-              padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey.withOpacity(.1),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 6),
-              padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey.withOpacity(.1),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.message,
-                color: Colors.black,
-              ),
-            ),
+            AppIcon(icon: Icons.search),
+            AppIcon(icon: Icons.message),
           ],
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: [
               Tab(
                 icon: Icon(
@@ -143,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             MarketPlace(),
             UserFeeds(),
             UserFeeds(),
-            MenuPage(),
+            UserMenuPage(),
           ],
         ),
         // bottomNavigationBar: BottomNavigationBar(
@@ -393,7 +365,7 @@ class FacebookCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.red,
                         shape: BoxShape.circle,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage("assets/images/image1.png"),
                           fit: BoxFit.cover,
                         ),

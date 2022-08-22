@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:formation_aout/menu_model.dart';
+import 'package:formation_aout/widgets/app_icon.dart';
 
 class MarketPlace extends StatefulWidget {
   MarketPlace({Key? key}) : super(key: key);
@@ -8,7 +10,48 @@ class MarketPlace extends StatefulWidget {
 }
 
 class _MarketPlaceState extends State<MarketPlace> {
-  List<Map<String, dynamic>> menuList = [
+  List<MenuModel> listMenuModel = [
+    MenuModel(
+      image: "assets/images/image11.jpg",
+      description: "FCFA 1 . Chemise fin de serie plus plus",
+    ),
+    MenuModel(
+      image: "assets/images/image22.jpg",
+      description: "FCFA 1 . Chemise fin de serie plus plus",
+    ),
+    MenuModel(
+      image: "assets/images/image33.jpg",
+      description: "FCFA 1 . Chemise fin de serie plus plus",
+    ),
+    MenuModel(
+      image: "assets/images/image55.jpg",
+      description: "FCFA 1 . Chemise fin de serie plus plus",
+    ),
+    MenuModel(
+      image: "assets/images/image77.jpg",
+      description: "FCFA 1 . Chemise fin de serie plus plus",
+    ),
+    MenuModel(
+      image: "assets/images/image77.jpg",
+      description: "FCFA 1 . Chemise fin de serie plus plus",
+    ),
+  ];
+
+  List<MenuItem> myMenuList(List<MenuModel> menus) {
+    List<MenuItem> menuList = [];
+    for (var menu in menus) {
+      MenuItem menuItem = MenuItem(
+        image: menu.image,
+        description: menu.description,
+      );
+
+      menuList.add(menuItem);
+    }
+
+    return menuList;
+  }
+
+  List<Map<String, String>> menuList = [
     {
       'image': 'assets/images/image11.jpg',
       'description': 'FCFA 1 . Chemise fin de serie plus plus'
@@ -64,30 +107,8 @@ class _MarketPlaceState extends State<MarketPlace> {
                   ),
                   Row(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 6),
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey.withOpacity(.1),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.person,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 6),
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey.withOpacity(.1),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.search,
-                          color: Colors.black,
-                        ),
-                      ),
+                      AppIcon(icon: Icons.person),
+                      AppIcon(icon: Icons.search),
                     ],
                   )
                 ],
@@ -267,12 +288,7 @@ class _MarketPlaceState extends State<MarketPlace> {
               crossAxisSpacing: 8,
               crossAxisCount: 2,
               childAspectRatio: .8,
-              children: menuList.map((item) {
-                return MenuItem(
-                  image: item['image'],
-                  description: item['description'],
-                );
-              }).toList(),
+              children: myMenuList(listMenuModel),
             ),
           ],
         ),
